@@ -23,10 +23,7 @@ pipeline {
             teamId: "null"
             ]
           writeJSON(file: 'message1.json', json: data)
-          }
-          println JsonOutput.prettyPrint(json.toString())
         }
-
       }
     }
   }
