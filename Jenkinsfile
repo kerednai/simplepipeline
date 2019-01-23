@@ -17,7 +17,10 @@ pipeline {
         echo "${env.POSTMANOUT}"
         script {
           def data = readJSON text: '{}'
-          data.a = "test: value" as String
+          data.orderId = "1234" as String
+          data.approvalType = "Financial" as String
+          data.userId = "Ian.Heritage@ibm.com" as String
+          data.teamId = "" as String
           writeJSON(file: 'message1.json', json: data, pretty: 4)
         }
 
