@@ -14,7 +14,7 @@ pipeline {
           env.POSTMANOUT = readFile 'postmanOutput.txt'
         }
 
-        echo "${env.POSTMxANOUT}"
+        echo "${env.POSTMANOUT}"
       }
     }
   }
