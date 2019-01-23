@@ -7,14 +7,12 @@ pipeline {
         script {
           env.FILENAME = readFile 'output.txt'
         }
-
         echo "${env.FILENAME}"
         httpRequest(url: 'https://postman-echo.com/post', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', outputFile: 'postmanOutput.txt', requestBody: '${env.FILENAME}', responseHandle: 'STRING', validResponseCodes: '200')
         script {
           env.POSTMANOUT = readFile 'postmanOutput.txt'
         }
-
-        echo '"${env.POSTMxANOUT}"'
+        echo "${env.POSTMxANOUT}"
       }
     }
   }
