@@ -1,3 +1,4 @@
+import groovy.json.*
 pipeline {
   agent any
   stages {
@@ -15,6 +16,19 @@ pipeline {
         }
 
         echo "${env.POSTMANOUT}"
+        script{
+          def json = new groovy.json.JsonBuilder()
+          def root = json.build {
+            build_number manager.build.number
+            build_timestamp manager.build.timestamp
+            build_duration manager.build.duration 
+            build_url manager.build.url
+            build_project_name manager.build.project.name
+            build_culprits manager.build.culprits
+            build_result result.toString() // get the string representation
+          }
+          println JsonOutput.prettyPrint(json.toString())
+        }
       }
     }
   }
