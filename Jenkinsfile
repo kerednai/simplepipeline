@@ -1,4 +1,3 @@
-import groovy.json.*
 pipeline {
   agent any
   stages {
@@ -16,12 +15,12 @@ pipeline {
         }
 
         echo "${env.POSTMANOUT}"
-        script{
+        script {
           def json = new groovy.json.JsonBuilder()
           def root = json.build {
             build_number manager.build.number
             build_timestamp manager.build.timestamp
-            build_duration manager.build.duration 
+            build_duration manager.build.duration
             build_url manager.build.url
             build_project_name manager.build.project.name
             build_culprits manager.build.culprits
@@ -29,6 +28,7 @@ pipeline {
           }
           println JsonOutput.prettyPrint(json.toString())
         }
+
       }
     }
   }
