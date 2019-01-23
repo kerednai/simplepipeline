@@ -18,7 +18,8 @@ pipeline {
         script {
           def data = readJSON text: '{}'
           data.orderId = "1234" as String
-          data.approvalType = "Financial" as String
+          data.approvalType[0] = "technical" as String
+          data.approvalType[1] = "financial" as String
           data.userId = "Ian.Heritage@ibm.com" as String
           data.teamId = "" as String
           writeJSON(file: 'message1.json', json: data, pretty: 4)
