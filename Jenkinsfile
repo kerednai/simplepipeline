@@ -1,14 +1,13 @@
 pipeline {
-  agent any
-  stages {
-    stage('Stage1') {
-      steps {
-        script {
-          def myVar = "testing 123"
-          println $myVar
+    agent any
+    stages {
+        stage("foo") {
+            steps {
+                script {
+                    env.FILENAME = readFile 'output.txt'
+                }
+                echo "${env.FILENAME}"
+            }
         }
-
-      }
     }
-  }
 }
