@@ -21,9 +21,10 @@ pipeline {
             approvalType: "Financial",
             userId: "Ian.Heritage@ibm.com",
             teamId: "null"
-            ]
+          ]
           writeJSON(file: 'message1.json', json: data)
         }
+
       }
     }
   }
