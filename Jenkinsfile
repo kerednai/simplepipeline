@@ -16,7 +16,7 @@ pipeline {
 
         echo "${env.POSTMANOUT}"
         script {
-          def sampleMap = [color:'Blue', shape:'Circle']          
+          def sampleMap = [color:'Blue', shape:'Circle']
           def data = readJSON text: ${env.sampleMap}
           writeJSON(file: 'message1.json', json: data, pretty: 4)
         }
