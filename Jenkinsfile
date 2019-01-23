@@ -9,6 +9,7 @@ pipeline {
         }
 
         echo "${env.FILENAME}"
+        httpRequest(url: 'https://postman-echo.com/post', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', outputFile: 'postmanOutput.txt', requestBody: '${env.FILENAME}', responseHandle: 'STRING', validResponseCodes: '200')
       }
     }
   }
