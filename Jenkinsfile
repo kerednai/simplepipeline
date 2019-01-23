@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    requestBody = "hello'
+  }
   stages {
     stage('Stage1') {
       steps {
